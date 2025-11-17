@@ -1069,9 +1069,6 @@ button:hover {
 
 
 
-
-
-
 /* ===== Extra small screens (≤480px) ===== */
 
 @media (max-width: 480px) {
@@ -1106,7 +1103,7 @@ button:hover {
     margin: 0 auto;      
     margin-top: 15px;
 }
-
+}
 
 
 
