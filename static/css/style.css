@@ -1072,6 +1072,38 @@ button:hover {
 
 
 
+/* ===== Extra small screens (≤480px) ===== */
+
+@media (max-width: 480px) {
+  header .logo a {
+    font-size: 1.3rem;
+  }
+
+  .search-form input,
+  .search-form button {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+    .promo-banner {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    gap: 0.8rem;
+  }
+
+  .menu-toggle {
+    font-size: 1.7rem;
+  }
+    .mySlides img {
+    max-height: 140px; /* even smaller for very small screens */
+ }
+  .text {
+    font-size: 0.8rem;
+    padding: 4px 6px;
+  }
+
+}
+
 
 
 
