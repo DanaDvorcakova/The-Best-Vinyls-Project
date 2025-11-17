@@ -10,6 +10,9 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
+
+<!-- Back to Shop button -->
+    <a href="{{ url_for('index') }}" class="back-to-shop-btn">← Back to Shop</a>
 <h2>Search Results for "{{ query }}"</h2>
 
 {% if results %}
