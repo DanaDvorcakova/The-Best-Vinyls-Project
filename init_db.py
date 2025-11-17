@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS records (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     artist TEXT NOT NULL,
-    price REAL NOT NULL,
+    price TEXT NOT NULL
     image TEXT NOT NULL,
     description TEXT,
     genre TEXT NOT NULL
@@ -45,6 +45,8 @@ if not c.fetchone():
     print(f"Admin user created: {admin_username} / {admin_password}")
 else:
     print("Admin user already exists. Skipping creation.")
+
+
 
 
 # Add sample records if table is empty #

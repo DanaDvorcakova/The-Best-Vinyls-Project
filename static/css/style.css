@@ -232,7 +232,6 @@ header nav a:hover {
 }
 
 
-
 /* BUTTONS */
 .remove-btn, .delete-btn, .edit-btn, .add-btn, .checkout-btn, .save-btn {
   border: none;
@@ -248,6 +247,7 @@ header nav a:hover {
   background-color: rgb(171, 64, 64);
   padding: 10px 20px;
   color: white;
+  margin-top: 20px;
 }
 
 .add-btn:hover, .checkout-btn:hover {
@@ -1095,23 +1095,17 @@ button:hover {
     font-size: 1.7rem;
   }
     .mySlides img {
-    max-height: 140px; /* even smaller for very small screens */
+    max-height: 140px; 
  }
   .text {
     font-size: 0.8rem;
     padding: 4px 6px;
   }
 
+  .add-btn {
+    margin: 0 auto;      
+    margin-top: 15px;
 }
-
-
-
-
-
-
-
-
-
 
 
 
