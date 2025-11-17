@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Currency Switcher -->
+<div class="currency-switcher" id="currencySwitcher"></div>
+
+<div class="record-detail">
+<div class="record-left">
+    <!-- Anchor tag for image-->
+    <a href="#" class="view-link" data-img="{{ url_for('static', filename=record['image']) }}">
+        <img src="{{ url_for('static', filename=record['image']) }}" 
+             alt="{{ record['title'] }}" 
+             class="record-img">
+    </a>
+        <!-- Anchor tag for View button under the image -->
+        <a href="#" class="view-link view-under-img" 
+           data-img="{{ url_for('static', filename=record['image']) }}"> View Image</a>
+    </div>
+
+    <div class="record-right">
+        <h2>{{ record['title'] }}</h2>
+        <h3>{{ record['artist'] }}</h3>
+        <p>{{ record['description'] }}</p>
+
+        <p>Price: 
+            <span class="price" data-price="{{ record['price'] }}">
+                €{{ "%.2f"|format(record['price']) }}
+            </span>
+        </p>
+
+        <form action="{{ url_for('add_to_cart', record_id=record['id']) }}" method="post">
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Container -->
+<div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Contact Us</h1>
+    <p>We would love to hear from you! Please fill out the form below to get in touch.</p>
+
+    <!-- Contact Form -->
+  <div class="container">
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Our Information</h2>
+      <ul>
+        <li><strong>Address:</strong> 1 Main Street, Ennis, Ireland</li>
+        <li><strong>Phone:</strong> +353 83 4789113</li>
+        <li><strong>Email:</strong> <a href="mailto:info@thebestvinyls.com">info@thebestvinyls.com</a></li>
+
+        <h3>Follow Us</h3>
+     <ul style="display:flex; padding-left:0; gap:1rem; width: fit-content; margin: 0 auto;">
+       <li><a href="#" target="_blank">Facebook</a></li>
+       <li><a href="#" target="_blank">Twitter</a></li>
+       <li><a href="#" target="_blank">Instagram</a></li>
+    </ul>
+
+      <!-- Google Map -->
+      <div class="map">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21639.666301480258!2d-8.979235078656773!3d52.843199793088175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sie!4v1763113043563!5m2!1sen!2sie" 
+       width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+         >
+        </iframe>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+</body>
+</html>
+

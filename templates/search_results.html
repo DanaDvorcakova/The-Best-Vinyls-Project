@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<body>
+    {% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+
+{% if results %}
+    <div class="records-grid">
+        {% for record in results %}
+            <div class="record-card">
+                <a href="{{ url_for('record_detail', record_id=record['id']) }}">
+                    <img src="{{ url_for('static', filename=record['image']) }}" alt="{{ record['title'] }}" class="record-image">
+                    <h3>{{ record['title'] }}</h3>
+                    <p>{{ record['artist'] }}</p>
+                   <p class="price" data-price="{{ record.price }}">€{{ "%.2f"|format(record.price) }}</p>
+                </a>
+                <form action="{{ url_for('add_to_cart', record_id=record['id']) }}" method="post">
+                    <button type="submit">Add to Cart 🛒</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No records found matching your search.</p>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>

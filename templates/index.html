@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Shop</title>
+</head>
+<body>
+
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Slide 1 -->
+  <div class="mySlides fade">
+    <div class="text">Welcome to The Best Vinyl Shop</div>
+    <img src="https://i.pinimg.com/736x/94/6d/a1/946da1bc4d460a9c3c45c8b14433354d.jpg" alt="Slide 1"> 
+  </div>
+  <!-- Slide 2 -->
+  <div class="mySlides fade">
+    <div class="text">Best Selling Album of 2025</div>
+    <img src="https://www.therecordhub.com/cdn/shop/files/BohemianRhapsody_7BlueVinyl_1200x.png?v=1758193696" alt="Slide 2">
+  </div>
+  <!-- Slide 3 -->
+  <div class="mySlides fade">
+     <div class="text">Album of the Month</div>
+    <img src="https://www.therecordhub.com/cdn/shop/files/AmericanIdiot_20thAnniversaryEdition_LimitedRed_BlackLP_1200x.png?v=1729173789" alt="Slide 3">
+  </div>
+    <!-- Slide 4 -->
+  <div class="mySlides fade">
+    <div class="text">The Best Buy Album</div>
+    <img src="https://interscope.com/cdn/shop/products/BE_HTE_Gold.png?v=1652319450" alt="Slide 4">
+  </div>
+  <!-- Slide 5 -->
+  <div class="mySlides fade">
+    <div class="text">Start Browsing Our Collection</div>
+    <img src="https://wallpapercave.com/wp/wp8513321.jpg" alt="Slide 5">
+  </div>
+</div>
+
+
+<h2>Collections by Genre</h2>
+
+<!-- ROCK SECTION -->
+<section class="genre-section">
+  <div class="genre-header">
+    <button class="arrow left" onclick="scrollCarousel('carousel-rock', -1)">&#10094;</button>
+    <h3>🎸 Rock</h3>
+
+    <button class="arrow right" onclick="scrollCarousel('carousel-rock', 1)">&#10095;</button>
+  </div>
+
+  <div class="carousel" id="carousel-rock">
+    {% if rock_records %}
+        {% for record in rock_records %}
+ <div class="record-card reveal">
+  <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
+    <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
+    <div class="record-info">
+      <h4>{{ record.title }}</h4>
+      <p>{{ record.artist }}</p>
+      <p class="price" data-price="{{ record.price }}">€{{ "%.2f"|format(record.price) }}</p>
+    </div>
+  </a>
+  <div class="record-buttons">
+    <a href="{{ url_for('record_detail', record_id=record.id) }}" class="view-btn">View</a>
+    <form action="{{ url_for('add_to_cart', record_id=record.id) }}" method="post">
+      <button type="submit" class="add-btn">Add to Cart</button>
+    </form>
+  </div>
+</div>
+        {% endfor %}
+    {% else %}
+        <p>No Rock records available.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- POP SECTION -->
+<section class="genre-section">
+  <div class="genre-header">
+    <button class="arrow left" onclick="scrollCarousel('carousel-pop', -1)">&#10094;</button>
+    <h3>🎤 Pop</h3>
+    <button class="arrow right" onclick="scrollCarousel('carousel-pop', 1)">&#10095;</button>
+  </div>
+
+  <div class="carousel" id="carousel-pop">
+    {% if pop_records %}
+        {% for record in pop_records %}
+        <div class="record-card reveal">
+          <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
+            <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
+            <div class="record-info">
+              <h4>{{ record.title }}</h4>
+              <p>{{ record.artist }}</p>
+              <p class="price" data-price="{{ record.price }}">€{{ "%.2f"|format(record.price) }}</p>
+            </div>
+          </a>
+          <div class="record-buttons">
+            <a href="{{ url_for('record_detail', record_id=record.id) }}" class="view-btn">View</a>
+            <form action="{{ url_for('add_to_cart', record_id=record.id) }}" method="post">
+              <button type="submit" class="add-btn">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+       {% endfor %}
+    {% else %}
+        <p>No Pop records available.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- JAZZ SECTION -->
+<section class="genre-section">
+  <div class="genre-header">
+    <button class="arrow left" onclick="scrollCarousel('carousel-jazz', -1)">&#10094;</button>
+    <h3>🎷 Jazz</h3>
+    <button class="arrow right" onclick="scrollCarousel('carousel-jazz', 1)">&#10095;</button>
+  </div>
+
+  <div class="carousel" id="carousel-jazz">
+    {% if jazz_records %}
+        {% for record in jazz_records %}
+  <div class="record-card reveal">
+          <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
+            <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
+            <div class="record-info">
+              <h4>{{ record.title }}</h4>
+              <p>{{ record.artist }}</p>
+              <p class="price" data-price="{{ record.price }}">€{{ "%.2f"|format(record.price) }}</p>
+            </div>
+          </a>
+          <div class="record-buttons">
+            <a href="{{ url_for('record_detail', record_id=record.id) }}" class="view-btn">View</a>
+            <form action="{{ url_for('add_to_cart', record_id=record.id) }}" method="post">
+              <button type="submit" class="add-btn">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No Jazz records available.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+
+    <!-- Back to Shop button -->
+    <a href="{{ url_for('index') }}" class="back-to-shop-btn">← Back to Shop</a>
+
+    <!-- Items in the Cart -->
+    <div class="cart-container">
+        <h2>Your Shopping Cart</h2>
+
+        {% if records %}
+        <div class="cart-items">
+            {% for record in records %}
+            <div class="cart-item" id="cart-item-{{ record.id }}">
+                <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
+                
+                <div class="cart-details">
+                    <h3>{{ record.title }}</h3>
+                    <p class="artist">{{ record.artist }}</p>
+                    <p class="price" data-price="{{ "%.2f"|format(record.price) }}">
+                        €{{ "%.2f"|format(record.price) }}
+                    </p>
+
+                    <!-- Quantity controls -->
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn decrease" data-id="{{ record.id }}">−</button>
+                        <span class="quantity" id="quantity-{{ record.id }}">1</span>
+                        <button type="button" class="quantity-btn increase" data-id="{{ record.id }}">+</button>
+                    </div>
+
+                    <!-- Item total -->
+                    <p>
+                        <strong>Total:</strong>
+                        <span class="item-total" id="item-total-{{ record.id }}">
+                            €{{ "%.2f"|format(record.price) }}
+                        </span>
+                    </p>
+                </div>
+
+                <button type="button" class="remove-btn" data-id="{{ record.id }}">Remove</button>
+            </div>
+            {% endfor %}
+        </div>
+        
+         <!-- Total summary -->
+        <div class="cart-summary">
+            <p>
+                <strong>Total:</strong>
+                <span class="price" id="cart-total" data-price="{{ total_price }}">
+                    €{{ "%.2f"|format(total_price) }}
+                </span>
+            </p>
+
+             <!-- Placeholder for moving to checkout -->
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+
+        {% else %}
+        <p class="empty-cart">Your cart is empty</p>
+        {% endif %}
+    </div>
+
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Record</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="admin-form-container">
+  <h2>Add New Record</h2>
+
+  <form action="{{ url_for('admin_add') }}" method="post" enctype="multipart/form-data" class="admin-form">
+    
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="artist">Artist:</label>
+    <input type="text" id="artist" name="artist" required>
+
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre" required>
+      <option value="">-- Select Genre --</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+    </select>
+
+    <label for="price">Price (€):</label>
+    <input type="number" id="price" name="price" step="0.01" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4"></textarea>
+
+    <!-- Upload option -->
+    <label for="image">Upload Image:</label>
+    <input type="file" id="image" name="image" accept="image/*">
+
+    <p style="text-align:center; margin: 10px 0;">or</p>
+
+    <!-- Manual path option -->
+    <label for="image_path">Image Path (optional):</label>
+    <input type="text" id="image_path" name="image_path" placeholder="e.g., images/record1.jpg"></form></br>
+
+    <button type="submit" class="save-btn">Add Record</button>
+  </form>
+</div>
+{% endblock %}
+</body>
+</html>

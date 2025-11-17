@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best Vinyls</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner">
+        <p>🎜 10% off your first order! Use code: FIRST10 🎜</p>
+        <p>🎸 FREE Shipping on orders over €50 🎸 </p>
+         <!-- Duplication the same messages for seamless loop -->
+        <p>🎜 10% off your first order! Use code: FIRST10 🎜</p>
+        <p>🎸 FREE Shipping on orders over €50 🎸</p>
+  </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->  
+<header>
+    <div class="top-nav">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/128/483/483064.png" alt="The Best Vinyls Logo">
+            <a href="{{ url_for('index') }}">The Best Vinyls</a>
+        </div>
+
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            {% if session.get('username') == 'admin' %}
+                <a href="{{ url_for('admin') }}">Admin</a>
+            {% endif %}
+            {% if session.get('username') %}
+                <a href="{{ url_for('cart') }}">Cart</a>
+                <a href="{{ url_for('logout') }}">Logout ({{ session.get('username') }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+            <div class="currency-dropdown">
+                <select id="currencySwitcher">
+                    <option value="€">EUR €</option>
+                    <option value="£">GBP £</option>
+                    <option value="$">USD $</option>
+                </select>
+            </div>
+        </nav>
+
+        <!-- HAMBURGER ICON FOR MOBILE SCREEN -->
+        <div class="menu-toggle">☰</div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <form class="search-form" action="{{ url_for('search') }}" method="get">
+            <input type="text" id="search-bar" name="q" placeholder="Search records..." required>
+            <button type="submit">🔍</button>
+        </form>
+    </div>
+</header>
+
+    <!-- FLASH MESSAGES -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- MAIN CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 The Best Vinyls — All Rights Reserved</p>
+
+           <!-- PLACEHOLDER ICONS FOR SOCIAL ICONS -->
+    <div class="social-icons">
+      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+        <p>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('login') }}">Login</a> |
+            <a href="{{ url_for('register') }}">Register</a> |
+            <a href="{{ url_for('cart') }}">Cart</a>
+        </p>
+    </footer>
+
+
+    <!-- MOBILE NAV SCRIPT -->
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('header nav');
+
+      menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+
+    // Toggle between ☰ and ✖
+      if (menuToggle.classList.contains('open')) {
+        menuToggle.textContent = '✖';
+    } else {
+        menuToggle.textContent = '☰';
+    }
+});
+    </script>
+
+    <!-- MAIN JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+         

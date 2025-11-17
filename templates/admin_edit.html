@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Edit</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="admin-form-container">
+  <h2>Edit Record</h2>
+
+  <form action="{{ url_for('admin_edit', record_id=record.id) }}" method="post" enctype="multipart/form-data" class="admin-form">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="{{ record.title }}" required>
+
+    <label for="artist">Artist:</label>
+    <input type="text" id="artist" name="artist" value="{{ record.artist }}" required>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" value="{{ record.genre }}" required>
+
+    <label for="price">Price (€):</label>
+    <input type="number" id="price" name="price" step="0.01" value="{{ record.price }}" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4">{{ record.description }}</textarea>
+
+    <label for="image">Image (path):</label>
+    <input type="text" id="image" name="image" value="{{ record.image }}">
+    <p class="note">💡 Paste path from the static/images folder (images/album.jpg)</p>
+
+    <button type="submit" class="save-btn">Save Changes</button>
+  </form>
+</div>
+
+{% endblock %}
+</body>
+</html>
