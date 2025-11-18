@@ -6,40 +6,39 @@
     <title>Music Shop</title>
 </head>
 <body>
-
 {% extends "base.html" %}
 {% block content %}
+
+<div class="collection-genre"></div>
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Slide 1 -->
-  <div class="mySlides fade">
-    <div class="text">Welcome to The Best Vinyl Shop</div>
-    <img src="https://i.pinimg.com/736x/94/6d/a1/946da1bc4d460a9c3c45c8b14433354d.jpg" alt="Slide 1"> 
+  <div class="mySlides fade"> 
+    <img src="https://wallpapercave.com/wp/wp8513321.jpg" alt="Slide 1"> 
   </div>
-  <!-- Slide 2 -->
-  <div class="mySlides fade">
-    <div class="text">Best Selling Album of 2025</div>
-    <img src="https://www.therecordhub.com/cdn/shop/files/BohemianRhapsody_7BlueVinyl_1200x.png?v=1758193696" alt="Slide 2">
-  </div>
-  <!-- Slide 3 -->
-  <div class="mySlides fade">
-     <div class="text">Album of the Month</div>
-    <img src="https://www.therecordhub.com/cdn/shop/files/AmericanIdiot_20thAnniversaryEdition_LimitedRed_BlackLP_1200x.png?v=1729173789" alt="Slide 3">
-  </div>
-    <!-- Slide 4 -->
-  <div class="mySlides fade">
-    <div class="text">The Best Buy Album</div>
-    <img src="https://interscope.com/cdn/shop/products/BE_HTE_Gold.png?v=1652319450" alt="Slide 4">
-  </div>
-  <!-- Slide 5 -->
-  <div class="mySlides fade">
-    <div class="text">Start Browsing Our Collection</div>
-    <img src="https://wallpapercave.com/wp/wp8513321.jpg" alt="Slide 5">
-  </div>
-</div>
 
+  <!-- Slide 2 -->
+  <div class="mySlides fade"> 
+    <img src="https://www.therecordhub.com/cdn/shop/files/AmericanIdiot_20thAnniversaryEdition_LimitedRed_BlackLP_1200x.png?v=1729173789" alt="Slide 2">
+     <div class="text">Album of the Month</div>
+  </div>
+
+    <!-- Slide 3 -->
+  <div class="mySlides fade">
+    <img src="https://interscope.com/cdn/shop/products/BE_HTE_Gold.png?v=1652319450" alt="Slide 3">
+     <div class="text">The Best Buy Album</div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="mySlides fade">
+    <img src="https://www.therecordhub.com/cdn/shop/files/BohemianRhapsody_7BlueVinyl_1200x.png?v=1758193696" alt="Slide 4">
+    <div class="text">Best Selling Album of 2025</div>
+  </div>
+  
+</div>
+</br>
 
 <h2>Collections by Genre</h2>
 
@@ -56,8 +55,14 @@
     {% if rock_records %}
         {% for record in rock_records %}
  <div class="record-card reveal">
+
+<div class="vinyl-box">
+  <span class="price-text">3 for 70</span>
+</div>
+
   <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
     <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
+
     <div class="record-info">
       <h4>{{ record.title }}</h4>
       <p>{{ record.artist }}</p>
@@ -90,6 +95,10 @@
     {% if pop_records %}
         {% for record in pop_records %}
         <div class="record-card reveal">
+
+          <div class="vinyl-box">
+            <span class="price-text">3 for 70</span>
+      </div>
           <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
             <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
             <div class="record-info">
@@ -124,6 +133,10 @@
     {% if jazz_records %}
         {% for record in jazz_records %}
   <div class="record-card reveal">
+
+    <div class="vinyl-box">
+  <span class="price-text">3 for 70</span>
+</div>
           <a href="{{ url_for('record_detail', record_id=record.id) }}" class="record-link">
             <img src="{{ url_for('static', filename=record.image) }}" alt="{{ record.title }}">
             <div class="record-info">

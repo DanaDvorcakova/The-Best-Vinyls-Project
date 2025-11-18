@@ -244,7 +244,7 @@ header nav a:hover {
 }
 
 .add-btn, .checkout-btn {
-  background-color: rgb(171, 64, 64);
+  background-color: rgb(128, 36, 36);
   padding: 10px 20px;
   color: white;
   margin-top: 20px;
@@ -323,7 +323,9 @@ header nav a:hover {
   margin-right: 20px;
 }
 
-.cart-details { flex: 1; }
+.cart-details { 
+  flex: 1; 
+}
 
 .cart-summary {
   margin-top: 30px;
@@ -657,6 +659,22 @@ footer a:hover {
   margin: 0; 
 }
 
+.vinyl-box {
+  width: 100px;
+  height: 20px;
+  position: relative;
+}
+
+.price-text {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  background:  rgb(128, 36, 36);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+
 .arrow {
   background: rgb(128, 36, 36);
   color: white;
@@ -724,11 +742,18 @@ footer a:hover {
 
 .text {
   color: rgb(81, 22, 22);
+  font-size: 1rem;
+}
+
+.collection-genre {
+  color: rgb(81, 22, 22);
   font-size: 1.3rem;
   font-weight: 600;
   padding: 15px 0;
   margin: 0;
 }
+
+
 
 /* CONTACT PAGE */
 .container {
@@ -1096,6 +1121,7 @@ button:hover {
     .mySlides img {
     max-height: 140px; 
  }
+ 
   .text {
     font-size: 0.8rem;
     padding: 4px 6px;
@@ -1105,6 +1131,11 @@ button:hover {
     margin: 0 auto;      
     margin-top: 15px;
 }
+
+.collection-genre {
+  font-size: 1rem;
+}
+
 }
 
 

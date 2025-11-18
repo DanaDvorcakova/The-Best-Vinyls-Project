@@ -353,8 +353,22 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}    
   slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 3000); // Change image every 3 seconds
+  setTimeout(showSlides, 6500); // Change image every 3 seconds
 }
 
 
+// TYPEWRITTER EFFECT //
+const div = document.querySelector(".collection-genre");
+const text = 'Hey vinyl lovers! Welcome to "The Best Vinyls" shop and enjoy browsing through our collection!';
 
+function textTypingEffect(element, text, i = 0) {
+    if (i === 0) {
+    element.textContent = "";
+    }
+    element.textContent += text[i];
+    if (i === text.length - 1) {
+        return;
+    }
+    setTimeout(() => textTypingEffect(element, text, i + 1) , 50);
+}
+textTypingEffect(div, text);
