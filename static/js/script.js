@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Queen",
         "Maneskin", 
         "AC/DC",
-        "Nirvana",
+        "Tublatanka",
         "Harry Styles"
     ];
 
