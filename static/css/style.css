@@ -590,7 +590,7 @@ footer a:hover {
 
 .promo-banner p {
   flex-shrink: 0;
-  animation: scrollBanner 15s linear infinite;
+  animation: scrollBanner 50s linear infinite;
 }
 
 @keyframes scrollBanner {
@@ -793,9 +793,11 @@ button:hover {
   background: rgb(81, 22, 22); 
 }
 
-.contact-info ul { 
+ .contact-info ul { 
   list-style: none; 
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
 
 .contact-info li { 
   margin: 0.5rem 0; 

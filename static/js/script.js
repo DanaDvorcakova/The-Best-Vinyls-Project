@@ -227,7 +227,7 @@ Object.assign(backBtn.style, {
 document.body.appendChild(backBtn);
 
 window.addEventListener('scroll', () => {
-    backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    backBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
 });
 
 backBtn.addEventListener('click', () => {
