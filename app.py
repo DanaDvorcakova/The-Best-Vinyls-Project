@@ -67,6 +67,11 @@ def record_detail(record_id):
 def contact():
     return render_template('contact.html')
 
+# Shipping Page #
+@app.route('/shipping')
+def shipping():
+    return render_template('shipping.html')
+
 
 # USER AUTHENTICATION #
 
