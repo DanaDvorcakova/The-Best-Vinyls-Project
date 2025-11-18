@@ -836,7 +836,95 @@ button:hover {
 
 .contact-info a:hover {
   color: rgb(81, 22, 22);
+  text-decoration: underline;
 }
+
+
+/* SHIPPING PAGE */
+        .shipping-container {
+        max-width: 700px;
+        margin: 30px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.7;
+    }
+
+    .shipping-container h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-top: 30px;
+        color: #333;
+        padding-left: 12px;
+        font-weight: 600;
+    }
+
+    .info-box {
+        background: #f8f9fc;
+        padding: 20px;
+        margin-top: 15px; 
+    }
+
+    .shipping-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    .shipping-table th {
+        background: rgb(128, 36, 36);
+        color: white;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .shipping-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .shipping-table tr:hover {
+        background: #f2f7ff;
+    }
+
+    .icon-title {
+        margin-right: 8px;
+        color:  rgb(128, 36, 36);
+    }
+
+    a.email-link {
+        color: rgb(128, 36, 36);
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a.email-link:hover {
+        text-decoration: underline;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1092,8 +1180,26 @@ button:hover {
    text-align: center;
    justify-content: center; 
  }
-}
 
+ .shipping-container {
+   max-width: 80%;       
+   padding: 15px;        
+   margin: 15px auto;    
+   border-radius: 8px;  
+    }
+
+.shipping-container h2 {     
+    font-size: 22px;     
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    }
+
+ .shipping-container p,
+ .shipping-container li {
+    font-size: 14px;     
+    line-height: 1.6;
+    }
+}
 
 
 /* ===== Extra small screens (≤480px) ===== */
