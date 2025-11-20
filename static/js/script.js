@@ -187,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
 // FLASH MESSAGES AUDIO HIDE //
 document.addEventListener('DOMContentLoaded', () => {
     const flashMessages = document.querySelectorAll('.flash-messages li');
